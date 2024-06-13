@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 2;
+    text-rendering: optimizeLegibility;
+    text-shadow: 0 0 1px;
+    word-break: break-word;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 100vh; /* Ensure the footer stays at the bottom */
+    background-color: #030911; 
+    color: white; 
+}
+
+nav {
+    background-color: #030911; 
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav li {
+    height: 50px;
+}
+
+nav a {
+    height: 100%;
+    padding: 0 15px; /* Adjusted padding */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 0.9em; /* Reduced font size */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+nav a:hover {
+    background-color: #030c16; /* Darken background on hover */
+}
+
+nav .logo:hover {
+    background-color: #030911; /* Match the background color of the body */
+}
+
+nav li:first-child {
+    margin-right: auto;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: white; 
+}
+
+header {
+    text-align: center;
+    margin: 0; 
+    padding: 20px 0; /* Adjusted padding */
+}
+
+header h1 {
+    font-size: 3em;
+    color: white; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .your {
+    display: inline-block;
+    position: relative;
+}
+
+header .your::after {
+    content: "";
+    display: block;
+    width: 0.6em; /* Adjust width to cover "y" and "o" */
+    height: 3px; /* Adjust thickness */
+    background-color: white;
+    position: absolute;
+    bottom: -5px; /* Adjust position below the text */
+    left: 0.4em; /* Adjust position to start under "y" */
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+main p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.sidebar {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    background-color: #030911; /* Match the background color of the body */
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    padding-top: 50px; /* Space for the close icon */
+}
+
+.sidebar li, .sidebar a {
+    width: 100%;
+    color: white;
+    font-size: 1em; /* Standard font size */
+    padding: 10px 15px; /* Adjusted padding */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.sidebar a:hover {
+    background-color: #030c16; /* Darken background on hover */
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.close-icon {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.box1 {
+    background-color: rgba(255, 255, 0, 0.712); /* Yellow background with opacity */
+    padding: 10px;
+    border: 2px solid yellow; /* Yellow border */
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 10px; /* Space between boxes */
+}
+
+.box1 p {
+    margin: 0;
+    color: white; /* Dark text for contrast */
+    font-weight: bold;
+}
+
+.box2 {
+    background-color: #030911; /* Match the background color of the body */
+    border: 2px solid yellow; /* Yellow border */
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    color: yellow; /* Yellow text */
+}
+
+.box2 p {
+    margin: 0;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #122f4d7e; /* Green background for the footer */
+    text-align: center;
+    padding: 10px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.latest-news {
+    color: #4CAF50; /* Green color for [LATEST NEWS] */
+    font-weight: bold;
+    margin-right: 10px; /* Space between sections */
+}
+
+.news-content {
+    color: white; /* White color for news content */
+    font-weight: bold;
+}
+
+@media (max-width: 800px) {
+    .hideOnMobile {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block; /* Show toggle button on smaller screens */
+    }
+
+    .menu-toggle:checked ~ .menu-icon + .sidebar {
+        display: flex; /* Show sidebar when checkbox is checked */
+    }
+
+    .main-nav {
+        display: none; /* Hide main nav items */
+    }
+}
